@@ -95,13 +95,6 @@
 
   # Install firefox.
   programs.firefox.enable = true;
-  programs.thunar = {
-    enable = true;
-    plugins = with pkgs.xfce; [
-      thunar-archive-plugin
-      xfce4-pulseaudio-plugin
-    ];
-  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
