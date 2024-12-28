@@ -12,9 +12,9 @@
 
   nix = {
     # https://github.com/Misterio77/nix-starter-configs/blob/main/standard/nixos/configuration.nix
-    package = pkgs.nixFlakes;
+    package = pkgs.nixVersions.stable;
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [ "nix-command" "flakes" "pipe-operators"];
     };
   };
 
@@ -68,9 +68,12 @@
     bluetooth.enable  = true;
   };
   services.blueman.enable = true;
+
   # Enable CUPS to print documents.
-  services.printing.enable = true;
-  services.printing.drivers = [ pkgs.hplip ];
+  services.printing = {
+    enable = true;
+    drivers = [ pkgs.hplip ];
+  };
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
