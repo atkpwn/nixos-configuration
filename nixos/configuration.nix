@@ -90,7 +90,15 @@
   users.users.attakorn = {
     isNormalUser = true;
     description = "Attakorn";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker"];
+  };
+
+  virtualisation.docker = {
+    enable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
   };
 
   # Install firefox.
