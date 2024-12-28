@@ -15,16 +15,13 @@
       system = "x86_64-linux";
     in {
 
-      nixosConfigurations = {
-        myNixos = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit system; };
+      nixosConfigurations.bigfoot = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit system; };
 
-          modules = [
-            ./nixos/configuration.nix
-            nixos-hardware.nixosModules.lenovo-thinkpad-x270
-          ];
-        };
+        modules = [
+          ./nixos/configuration.nix
+          nixos-hardware.nixosModules.lenovo-thinkpad-x270
+        ];
       };
-
     };
 }
